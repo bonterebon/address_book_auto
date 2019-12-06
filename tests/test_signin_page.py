@@ -12,8 +12,8 @@ from pages import signin_page
     ('test@gmail.com', '', True),
     ('', '123', True),
     ('olatest@protonmail.com', '111', True)])
-def test_invalid_signin(email, password, expected, chrome_driver):
-    signin = signin_page.SigninPage(chrome_driver)
+def test_invalid_signin(email, password, expected, driver):
+    signin = signin_page.SigninPage(driver)
     signin.get_page()
     signin.fill_email_field(email)
     signin.fill_password_field(password)
@@ -24,8 +24,8 @@ def test_invalid_signin(email, password, expected, chrome_driver):
 @allure.feature('Sign in')
 @allure.title('Valid sign in')
 @allure.description('Test that sign in works with valid password and email')
-def test_valid_signin(chrome_driver):
-    signin = signin_page.SigninPage(chrome_driver)
+def test_valid_signin(driver):
+    signin = signin_page.SigninPage(driver)
     signin.get_page()
     signin.fill_password_field('olacamera@protonmail.com')
     signin.fill_password_field('123')

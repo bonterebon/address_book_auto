@@ -39,3 +39,10 @@ class SigninPage:
                           attachment_type=AttachmentType.PNG)
             return False
         return True
+
+    @allure.step('Sign in')
+    def authorise(self, email, password):
+        self.get_page()
+        self.fill_email_field(email)
+        self.fill_password_field(password)
+        self.press_signin_button()
